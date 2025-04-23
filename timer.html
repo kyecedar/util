@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="theme-light">
 
 <head>
   <title>quick timer.</title>
@@ -19,26 +19,24 @@
   <main>
     <div class="timers">
       <div class="timer">
-        <div class="name" contenteditable>ready.</div>
-        <div class="circle">
-          <svg class="progress-circle" width="102" height="102">
-            <circle class="progress-circle__circle" stroke="currentColor" stroke-width="44" fill="transparent" r="22"
-              cx="51" cy="51" />
-            <circle class="progress-circle__follower" stroke="currentColor" stroke-width="1" fill="transparent" r="50"
-              cx="51" cy="51" />
-          </svg>
+        <input class="name" type="text" placeholder="timer.">
+        <svg class="circle" width="102" height="102">
+          <circle class="__circle" stroke="currentColor" stroke-width="44" fill="transparent" r="22" cx="51" cy="51" />
+          <circle class="__rim" stroke="currentColor" stroke-width="1" fill="transparent" r="50" cx="51" cy="51" />
+        </svg>
+        <!-- <div class="remaining"></div> -->
+        <div class="setters">
+          <input class="hour" type="number" value="15" placeholder="00" title="Hour">:<input class="minute"
+            type="number" value="00" placeholder="00" title="Minute">:<input class="second" type="number" value="00"
+            placeholder="00" title="Second">
         </div>
-        <div class="remaining"></div>
-        <div class="time-setters"></div>
       </div>
-      <div class="timer"></div>
-      <div class="timer"></div>
     </div>
   </main>
 
   <script>
     // https://css-tricks.com/building-progress-ring-quickly/
-    var circle = document.querySelector(".progress-circle__circle");
+    var circle = document.querySelector(".__circle");
     var radius = circle.r.baseVal.value;
     var circumference = radius * 2 * Math.PI;
 
@@ -51,6 +49,16 @@
     }
 
     setProgress(80);
+  </script>
+
+  <script src="./js/timer.js"></script>
+
+  <script>
+    let timer = new Timer();
+
+    TIMERS.append(timer.element);
+
+    console.log(timer.element);
   </script>
 </body>
 

@@ -1,11 +1,11 @@
-@import url("https://api.fonts.coollabs.io/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&family=Figtree:ital,wght@0,300..900;1,300..900&family=Funnel+Display:wght@300..800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&family=Figtree:ital,wght@0,300..900;1,300..900&family=Funnel+Display:wght@300..800&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 
 
 /* specific, overrides default themes. */
 :root.theme-light {
   --header : var(--darker);
-  --text : var(--mid);
+  --text : var(--dark);
   --text-mid : var(--light);
   --background : var(--lighter);
 }
@@ -13,7 +13,7 @@
 /* specific, overrides default themes. */
 :root.theme-dark {
   --header : var(--lighter);
-  --text : var(--mid);
+  --text : var(--light);
   --text-mid : var(--dark);
   --background : var(--darker);
 }
@@ -22,7 +22,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --header : var(--lighter);
-    --text : var(--mid);
+    --text : var(--dark);
     --text-mid : var(--dark);
     --background : var(--darker);
   }
@@ -40,7 +40,7 @@
   
   /* light theme by default. */
   --header : var(--darker);
-  --text : var(--mid);
+  --text : var(--dark);
   --text-mid : var(--light);
   --background : var(--lighter);
   --links : var(--orange);
@@ -50,11 +50,21 @@
   --text-indent : 15px;
   --gap : 10px;
   --border-radius : 8px;
+
+  --font-size : 18px;
+
+  --h1-font-size : 32px;
 }
 
 
 
+html {
+  scrollbar-color: var(--text) var(--background);
+  scrollbar-width: thin;
+}
+
 body {
+  overflow-x: hidden;
   display: flex;
   font-size: 18px;
   font-family: "Atkinson Hyperlegible Next", sans-serif;
@@ -62,7 +72,22 @@ body {
   background: var(--background);
   width: 100vw;
   min-height: 100vh;
-  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--text);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text);
 }
 
 h1, h2, h3, h4, h5, h6 {
