@@ -1,0 +1,7 @@
+main {
+  border-right: 1px var(--text-mid) solid;
+}
+
+details > div {
+  padding-left: var(--text-indent);
+}

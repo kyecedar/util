@@ -1,11 +1,87 @@
-@import url('https://api.fonts.coollabs.io/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&family=Figtree:ital,wght@0,300..900;1,300..900&family=Funnel+Display:wght@300..800&display=swap');
+@import url("https://api.fonts.coollabs.io/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&family=Figtree:ital,wght@0,300..900;1,300..900&family=Funnel+Display:wght@300..800&display=swap");
+
+
+
+/* specific, overrides default themes. */
+:root.theme-light {
+  --header : var(--darker);
+  --text : var(--mid);
+  --text-mid : var(--light);
+  --background : var(--lighter);
+}
+
+/* specific, overrides default themes. */
+:root.theme-dark {
+  --header : var(--lighter);
+  --text : var(--mid);
+  --text-mid : var(--dark);
+  --background : var(--darker);
+}
+
+/* dark by default, if preferred.*/
+@media (prefers-color-scheme: dark) {
+  :root {
+    --header : var(--lighter);
+    --text : var(--mid);
+    --text-mid : var(--dark);
+    --background : var(--darker);
+  }
+}
+
+
+
+:root {
+  --darker  : #202020;
+  --dark    : #373737;
+  --mid     : #505050;
+  --light   : #808080;
+  --lighter : #efefef;
+  --orange  : #f45106;
+  
+  /* light theme by default. */
+  --header : var(--darker);
+  --text : var(--mid);
+  --text-mid : var(--light);
+  --background : var(--lighter);
+  --links : var(--orange);
+
+  --page-border : 10px;
+  --main-max-width : 500px;
+  --text-indent : 15px;
+  --gap : 10px;
+  --border-radius : 8px;
+}
+
+
 
 body {
-  font-size: 16px;
+  display: flex;
+  font-size: 18px;
   font-family: "Atkinson Hyperlegible Next", sans-serif;
+  color: var(--text);
+  background: var(--background);
+  width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Funnel Display", sans-serif;
+  color: var(--header);
 }
 
 h1 {
-  font-size: 24px;
-  font-family: "Funnel Display", sans-serif;
+  font-size: 32px;
+}
+
+a {
+  color: var(--links);
+}
+
+main {
+  position : relative;
+  max-width: var(--main-max-width);
+  width: calc(100vw - var(--page-border) * 2);
+  margin: auto;
+  padding : var(--page-border) 0;
 }

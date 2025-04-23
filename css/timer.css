@@ -1,0 +1,63 @@
+:root {
+  --timer-width : 150px;
+  --timer-height : 200px;
+}
+
+
+
+.timers {
+  display: flex;
+  flex-direction: row;
+  gap: var(--gap);
+  justify-content: center;
+}
+
+.timer {
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  border-radius: var(--border-radius);
+  min-width: var(--timer-width);
+  max-width: var(--timer-width);
+  min-height: var(--timer-height);
+  max-height: var(--timer-height);
+  /* background: var(--text-mid); */
+  border: 2px var(--text-mid) solid;
+  padding: var(--gap);
+
+  gap: var(--gap);
+}
+
+.timer .name {
+  /* color: var(--background); */
+  font-weight: 600;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  color: var(--background);
+  background: var(--text);
+
+  max-width: 100%;
+  overflow-x: hidden;
+
+  border-radius: 3px;
+  padding: 4px;
+}
+
+.timer .circle {
+  margin: 0 auto;
+}
+
+.progress-circle__circle {
+  transition: 0.15s stroke-dashoffset;
+  scale: 1 -1;
+  transform: rotate(90deg);
+  transform-origin: 50% 50%;
+  color: var(--orange);
+}
+
+.progress-circle__follower {
+  color: var(--text-mid);
+}

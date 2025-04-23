@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>quick timer.</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" type="text/css" href="./css/reset.css">
+  <link rel="stylesheet" type="text/css" href="./css/global.css">
+  <link rel="stylesheet" type="text/css" href="./css/timer.css">
+
+  <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
+    integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <main>
+    <div class="timers">
+      <div class="timer">
+        <div class="name" contenteditable>ready.</div>
+        <div class="circle">
+          <svg class="progress-circle" width="102" height="102">
+            <circle class="progress-circle__circle" stroke="currentColor" stroke-width="44" fill="transparent" r="22"
+              cx="51" cy="51" />
+            <circle class="progress-circle__follower" stroke="currentColor" stroke-width="1" fill="transparent" r="50"
+              cx="51" cy="51" />
+          </svg>
+        </div>
+        <div class="remaining"></div>
+        <div class="time-setters"></div>
+      </div>
+      <div class="timer"></div>
+      <div class="timer"></div>
+    </div>
+  </main>
+
+  <script>
+    // https://css-tricks.com/building-progress-ring-quickly/
+    var circle = document.querySelector(".progress-circle__circle");
+    var radius = circle.r.baseVal.value;
+    var circumference = radius * 2 * Math.PI;
+
+    circle.style.strokeDasharray = `${circumference} ${circumference}`;
+    circle.style.strokeDashoffset = `${circumference}`;
+
+    function setProgress(percent) {
+      const offset = circumference - percent / 100 * circumference;
+      circle.style.strokeDashoffset = offset;
+    }
+
+    setProgress(80);
+  </script>
+</body>
+
+</html>
